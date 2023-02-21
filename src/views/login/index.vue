@@ -222,6 +222,7 @@ onMounted(() => {
 					animation: logoAnimation 0.3s ease;
 					animation-delay: 0.3s;
 					color: var(--el-text-color-primary);
+					opacity: 0.8;
 				}
 
 				.login-right-warp-main-form {

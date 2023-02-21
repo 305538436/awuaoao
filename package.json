@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"@element-plus/icons-vue": "^2.0.10",
+		"@popperjs/core": "^2.11.6",
 		"@wangeditor/editor": "^5.1.23",
 		"@wangeditor/editor-for-vue": "^5.1.12",
 		"axios": "^1.2.1",
@@ -26,6 +27,7 @@
 		"mitt": "^3.0.0",
 		"nprogress": "^0.2.0",
 		"pinia": "^2.0.28",
+		"popper.js": "^1.16.1",
 		"print-js": "^1.6.0",
 		"qrcodejs2-fixes": "^0.0.2",
 		"qs": "^6.11.0",

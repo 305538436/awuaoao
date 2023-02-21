@@ -3,7 +3,9 @@
 		<el-form-item class="login-animation1">
 			<el-input text :placeholder="$t('message.account.accountPlaceholder1')" v-model="state.ruleForm.userName" clearable autocomplete="off">
 				<template #prefix>
-					<el-icon class="el-input__icon"><ele-User /></el-icon>
+					<el-icon class="el-input__icon">
+						<ele-User />
+					</el-icon>
 				</template>
 			</el-input>
 		</el-form-item>
@@ -15,7 +17,9 @@
 				autocomplete="off"
 			>
 				<template #prefix>
-					<el-icon class="el-input__icon"><ele-Unlock /></el-icon>
+					<el-icon class="el-input__icon">
+						<ele-Unlock />
+					</el-icon>
 				</template>
 				<template #suffix>
 					<i
@@ -27,28 +31,8 @@
 				</template>
 			</el-input>
 		</el-form-item>
-		<el-form-item class="login-animation3">
-			<el-col :span="15">
-				<el-input
-					text
-					maxlength="4"
-					:placeholder="$t('message.account.accountPlaceholder3')"
-					v-model="state.ruleForm.code"
-					clearable
-					autocomplete="off"
-				>
-					<template #prefix>
-						<el-icon class="el-input__icon"><ele-Position /></el-icon>
-					</template>
-				</el-input>
-			</el-col>
-			<el-col :span="1"></el-col>
-			<el-col :span="8">
-				<el-button class="login-content-code" v-waves>1234</el-button>
-			</el-col>
-		</el-form-item>
 		<el-form-item class="login-animation4">
-			<el-button type="primary" class="login-content-submit" round v-waves @click="onSignIn" :loading="state.loading.signIn">
+			<el-button type="warning" class="login-content-submit" round v-waves @click="onSignIn" :loading="state.loading.signIn">
 				<span>{{ $t('message.account.accountBtnText') }}</span>
 			</el-button>
 		</el-form-item>
@@ -63,8 +47,8 @@ import { useI18n } from 'vue-i18n';
 import Cookies from 'js-cookie';
 import { storeToRefs } from 'pinia';
 import { useThemeConfig } from '/@/stores/themeConfig';
-import { initFrontEndControlRoutes } from '/@/router/frontEnd';
-import { initBackEndControlRoutes } from '/@/router/backEnd';
+// import { initFrontEndControlRoutes } from '/@/router/frontEnd';
+// import { initBackEndControlRoutes } from '/@/router/backEnd';
 import { Session } from '/@/utils/storage';
 import { formatAxis } from '/@/utils/formatTime';
 import { NextLoading } from '/@/utils/loading';
@@ -78,9 +62,8 @@ const router = useRouter();
 const state = reactive({
 	isShowPassword: false,
 	ruleForm: {
-		userName: 'admin',
-		password: '123456',
-		code: '1234',
+		userName: 'aoao',
+		password: '11144',
 	},
 	loading: {
 		signIn: false,
@@ -100,12 +83,14 @@ const onSignIn = async () => {
 	Cookies.set('userName', state.ruleForm.userName);
 	if (!themeConfig.value.isRequestRoutes) {
 		// 前端控制路由，2、请注意执行顺序
-		const isNoPower = await initFrontEndControlRoutes();
+		// const isNoPower = await initFrontEndControlRoutes();
+		const isNoPower = !((state.ruleForm.userName == 'awu' || state.ruleForm.userName == 'aoao') && state.ruleForm.password == '11144');
 		signInSuccess(isNoPower);
 	} else {
 		// 模拟后端控制路由，isRequestRoutes 为 true，则开启后端控制路由
 		// 添加完动态路由，再进行 router 跳转，否则可能报错 No match found for location with path "/"
-		const isNoPower = await initBackEndControlRoutes();
+		// const isNoPower = await initBackEndControlRoutes();
+		const isNoPower = !((state.ruleForm.userName == 'awu' || state.ruleForm.userName == 'aoao') && state.ruleForm.password == '11144');
 		// 执行完 initBackEndControlRoutes，再执行 signInSuccess
 		signInSuccess(isNoPower);
 	}
@@ -150,20 +135,24 @@ const signInSuccess = (isNoPower: boolean | undefined) => {
 			animation-delay: calc($i/10) + s;
 		}
 	}
+
 	.login-content-password {
 		display: inline-block;
 		width: 20px;
 		cursor: pointer;
+
 		&:hover {
 			color: #909399;
 		}
 	}
+
 	.login-content-code {
 		width: 100%;
 		padding: 0;
 		font-weight: bold;
 		letter-spacing: 5px;
 	}
+
 	.login-content-submit {
 		width: 100%;
 		letter-spacing: 2px;

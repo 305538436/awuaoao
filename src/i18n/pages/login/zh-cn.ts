@@ -9,8 +9,8 @@ export default {
 		two4: '友情链接',
 	},
 	account: {
-		accountPlaceholder1: '用户名 admin 或不输均为 common',
-		accountPlaceholder2: '密码：123456',
+		accountPlaceholder1: '只有两个账号：awu、aoao',
+		accountPlaceholder2: '密码是我俩生日月日的组合',
 		accountPlaceholder3: '请输入验证码',
 		accountBtnText: '登 录',
 	},
@@ -22,7 +22,7 @@ export default {
 		msgText: '* 温馨提示：建议使用谷歌、Microsoft Edge，版本 79.0.1072.62 及以上浏览器，360浏览器请使用极速模式',
 	},
 	scan: {
-		text: '打开手机扫一扫，快速登录/注册',
+		text: '打开手机扫一扫，查看彩蛋',
 	},
 	signInText: '欢迎回来！',
 };

@@ -14,6 +14,10 @@ declare interface UserInfosState<T = any> {
 	};
 }
 
+declare interface ossInfoState {
+	ossInfos: any;
+}
+
 // 路由缓存列表
 declare interface KeepAliveNamesState {
 	keepAliveNames: string[];

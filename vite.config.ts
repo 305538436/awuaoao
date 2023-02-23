@@ -34,6 +34,12 @@ const viteConfig = defineConfig((mode: ConfigEnv) => {
 					changeOrigin: true,
 					rewrite: (path) => path.replace(/^\/gitee/, ''),
 				},
+				'/json': {
+					target: 'http://su-testb.oss-cn-shanghai.aliyuncs.com',
+					ws: true,
+					changeOrigin: true,
+					rewrite: (path) => path.replace(/^\/gitee/, ''),
+				},
 			},
 		},
 		build: {
@@ -41,9 +47,9 @@ const viteConfig = defineConfig((mode: ConfigEnv) => {
 			chunkSizeWarningLimit: 1500,
 			rollupOptions: {
 				output: {
-					entryFileNames: `assets/[name].[hash].js`,
-					chunkFileNames: `assets/[name].[hash].js`,
-					assetFileNames: `assets/[name].[hash].[ext]`,
+					entryFileNames: `assets/w[name].[hash].js`,
+					chunkFileNames: `assets/w[name].[hash].js`,
+					assetFileNames: `assets/w[name].[hash].[ext]`,
 					compact: true,
 					manualChunks: {
 						vue: ['vue', 'vue-router', 'pinia'],

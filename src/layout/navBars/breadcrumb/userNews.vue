@@ -16,7 +16,7 @@
 			</template>
 			<el-empty :description="$t('message.user.newDesc')" v-else></el-empty>
 		</div>
-		<div class="foot-box" @click="onGoToGiteeClick" v-if="state.newsList.length > 0">{{ $t('message.user.newGo') }}</div>
+<!--		<div class="foot-box" @click="onGoToGiteeClick" v-if="state.newsList.length > 0">{{ $t('message.user.newGo') }}</div>-->
 	</div>
 </template>
 
@@ -27,14 +27,14 @@ import { reactive } from 'vue';
 const state = reactive({
 	newsList: [
 		{
-			label: '关于版本发布的通知',
-			value: 'vue-next-admin，基于 vue3 + CompositionAPI + typescript + vite + element plus，正式发布时间：2021年02月28日！',
-			time: '2020-12-08',
+			label: '欢迎来到阿武和凹凹的网站',
+			value: '网站用于记录生活瞬间，同时也会陆续提供各种情侣感情升温小工具。',
+			time: new Date().toLocaleDateString(),
 		},
 		{
-			label: '关于学习交流的通知',
-			value: 'QQ群号码 665452019，欢迎小伙伴入群学习交流探讨！',
-			time: '2020-12-08',
+			label: '有任何想法和建议都可以在留言板留言哦',
+			value: '',
+			time: '2023-2-23',
 		},
 	],
 });

@@ -56,9 +56,9 @@ export const useUserInfo = defineStore('userInfo', {
 					const userInfos = {
 						userName: userName,
 						photo:
-							userName === 'admin'
+							userName !== 'aoao'
 								? 'https://img2.baidu.com/it/u=1978192862,2048448374&fm=253&fmt=auto&app=138&f=JPEG?w=504&h=500'
-								: 'https://img2.baidu.com/it/u=2370931438,70387529&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+								: 'http://su-testb.oss-cn-shanghai.aliyuncs.com/aoao/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230223201453.jpg',
 						time: new Date().getTime(),
 						roles: defaultRoles,
 						authBtnList: defaultAuthBtnList,

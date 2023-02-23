@@ -1,5 +1,5 @@
 <template>
-	<div class="layout-search-dialog">
+	<div class="layout-search-dialog" v-if="false">
 		<el-dialog v-model="state.isShowSearch" destroy-on-close :show-close="false">
 			<template #footer>
 				<el-autocomplete
@@ -101,11 +101,13 @@ defineExpose({
 <style scoped lang="scss">
 .layout-search-dialog {
 	position: relative;
+
 	:deep(.el-dialog) {
 		.el-dialog__header,
 		.el-dialog__body {
 			display: none;
 		}
+
 		.el-dialog__footer {
 			position: absolute;
 			left: 50%;
@@ -113,6 +115,7 @@ defineExpose({
 			top: -53vh;
 		}
 	}
+
 	:deep(.el-autocomplete) {
 		width: 560px;
 		position: absolute;

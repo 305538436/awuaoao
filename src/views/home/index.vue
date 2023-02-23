@@ -1,5 +1,6 @@
 <template>
 	<div class="home-container layout-pd">
+		<Countup />
 		<el-row :gutter="15" class="home-card-one mb15">
 			<el-col
 				:xs="24"
@@ -66,11 +67,13 @@
 </template>
 
 <script setup lang="ts" name="home">
-import { reactive, onMounted, ref, watch, nextTick, onActivated, markRaw } from 'vue';
+import { reactive, onMounted, ref, watch, nextTick, onActivated, markRaw, defineAsyncComponent } from 'vue';
 import * as echarts from 'echarts';
 import { storeToRefs } from 'pinia';
 import { useThemeConfig } from '/@/stores/themeConfig';
 import { useTagsViewRoutes } from '/@/stores/tagsViewRoutes';
+
+const Countup = defineAsyncComponent(() => import('/@/views/fun/countup/index.vue'));
 
 // 定义变量内容
 const homeLineRef = ref();
@@ -91,7 +94,7 @@ const state = reactive({
 		{
 			num1: '125,12',
 			num2: '-12.32',
-			num3: '订单统计信息',
+			num3: '测试',
 			num4: 'fa fa-meetup',
 			color1: '#FF6462',
 			color2: '--next-color-primary-lighter',
@@ -100,7 +103,7 @@ const state = reactive({
 		{
 			num1: '653,33',
 			num2: '+42.32',
-			num3: '月度计划信息',
+			num3: '测试',
 			num4: 'iconfont icon-ditu',
 			color1: '#6690F9',
 			color2: '--next-color-success-lighter',
@@ -109,7 +112,7 @@ const state = reactive({
 		{
 			num1: '125,65',
 			num2: '+17.32',
-			num3: '年度计划信息',
+			num3: '测试',
 			num4: 'iconfont icon-zaosheng',
 			color1: '#6690F9',
 			color2: '--next-color-warning-lighter',
@@ -118,7 +121,7 @@ const state = reactive({
 		{
 			num1: '520,43',
 			num2: '-10.01',
-			num3: '访问统计信息',
+			num3: '测试',
 			num4: 'fa fa-github-alt',
 			color1: '#FF6462',
 			color2: '--next-color-danger-lighter',
@@ -196,26 +199,26 @@ const initLineChart = () => {
 	const option = {
 		backgroundColor: state.charts.bgColor,
 		title: {
-			text: '政策补贴额度',
+			text: '测试',
 			x: 'left',
 			textStyle: { fontSize: '15', color: state.charts.color },
 		},
 		grid: { top: 70, right: 20, bottom: 30, left: 30 },
 		tooltip: { trigger: 'axis' },
-		legend: { data: ['预购队列', '最新成交价'], right: 0 },
+		legend: { data: ['测试', '测试'], right: 0 },
 		xAxis: {
 			data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
 		},
 		yAxis: [
 			{
 				type: 'value',
-				name: '价格',
+				name: '测试',
 				splitLine: { show: true, lineStyle: { type: 'dashed', color: '#f5f5f5' } },
 			},
 		],
 		series: [
 			{
-				name: '预购队列',
+				name: '测试',
 				type: 'line',
 				symbolSize: 6,
 				symbol: 'circle',
@@ -231,7 +234,7 @@ const initLineChart = () => {
 				},
 			},
 			{
-				name: '最新成交价',
+				name: '测试',
 				type: 'line',
 				symbolSize: 6,
 				symbol: 'circle',
@@ -275,7 +278,7 @@ const initLineChart = () => {
 const initPieChart = () => {
 	if (!state.global.dispose.some((b: any) => b === state.global.homeChartTwo)) state.global.homeChartTwo.dispose();
 	state.global.homeChartTwo = markRaw(echarts.init(homePieRef.value, state.charts.theme));
-	var getname = ['房屋及结构物', '专用设备', '通用设备', '文物和陈列品', '图书、档案'];
+	var getname = ['测试', '测试2', '测试3', '测试4', '测试5'];
 	var getvalue = [34.2, 38.87, 17.88, 9.05, 2.05];
 	var data = [];
 	for (var i = 0; i < getname.length; i++) {
@@ -285,7 +288,7 @@ const initPieChart = () => {
 	const option = {
 		backgroundColor: state.charts.bgColor,
 		title: {
-			text: '房屋建筑工程',
+			text: '测试',
 			x: 'left',
 			textStyle: { fontSize: '15', color: state.charts.color },
 		},
@@ -363,7 +366,7 @@ const initBarChart = () => {
 	const option = {
 		backgroundColor: state.charts.bgColor,
 		title: {
-			text: '地热开发利用',
+			text: '测试',
 			x: 'left',
 			textStyle: { fontSize: '15', color: state.charts.color },
 		},
@@ -546,6 +549,7 @@ watch(
 $homeNavLengh: 8;
 .home-container {
 	overflow: hidden;
+
 	.home-card-one,
 	.home-card-two,
 	.home-card-three {
@@ -559,19 +563,23 @@ $homeNavLengh: 8;
 			background: var(--el-color-white);
 			color: var(--el-text-color-primary);
 			border: 1px solid var(--next-border-color-light);
+
 			&:hover {
 				box-shadow: 0 2px 12px var(--next-color-dark-hover);
 				transition: all ease 0.3s;
 			}
+
 			&-icon {
 				width: 70px;
 				height: 70px;
 				border-radius: 100%;
 				flex-shrink: 1;
+
 				i {
 					color: var(--el-text-color-placeholder);
 				}
 			}
+
 			&-title {
 				font-size: 15px;
 				font-weight: bold;
@@ -579,6 +587,7 @@ $homeNavLengh: 8;
 			}
 		}
 	}
+
 	.home-card-one {
 		@for $i from 0 through 3 {
 			.home-one-animation#{$i} {
@@ -590,18 +599,22 @@ $homeNavLengh: 8;
 			}
 		}
 	}
+
 	.home-card-two,
 	.home-card-three {
 		.home-card-item {
 			height: 400px;
 			width: 100%;
 			overflow: hidden;
+
 			.home-monitor {
 				height: 100%;
+
 				.flex-warp-item {
 					width: 25%;
 					height: 111px;
 					display: flex;
+
 					.flex-warp-item-box {
 						margin: auto;
 						text-align: center;
@@ -611,11 +624,13 @@ $homeNavLengh: 8;
 						background: var(--next-bg-color);
 						cursor: pointer;
 						transition: all 0.3s ease;
+
 						&:hover {
 							background: var(--el-color-primary-light-9);
 							transition: all 0.3s ease;
 						}
 					}
+
 					@for $i from 0 through $homeNavLengh {
 						.home-animation#{$i} {
 							opacity: 0;

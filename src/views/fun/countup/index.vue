@@ -72,7 +72,7 @@ const refreshCurrent = () => {
 // 页面加载时
 onMounted(async () => {
 	// state.topCardItemList = await  service.get('/json/count.json');
-	state.topCardItemList = await service.get('http://su-testb.oss-cn-shanghai.aliyuncs.com/json/count.json');
+	state.topCardItemList = await service.get('https://su-testb.oss-cn-shanghai.aliyuncs.com/json/count.json');
 	state.topCardItemList[0].titleNum = dayjs().diff(dayjs(state.topCardItemList[0].date), 'day');
 	state.topCardItemList[1].titleNum = dayjs().diff(dayjs(state.topCardItemList[1].date), 'week');
 	state.topCardItemList[2].titleNum = dayjs().diff(dayjs(state.topCardItemList[0].date), 'second') * 1.5;

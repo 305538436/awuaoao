@@ -126,11 +126,11 @@ export function formatPast(param: string | Date, format: string = 'YYYY-mm-dd'):
  */
 export function formatAxis(param: Date): string {
 	let hour: number = new Date(param).getHours();
-	if (hour < 6) return '凹凹，怎么凌晨还进来瞅瞅，又睡不着了吗？睡吧~睡吧~我亲爱的宝贝';
+	if (hour < 6) return '凹凹，怎么凌晨还进来瞅瞅，又睡不着了吗？睡吧~睡吧~我亲爱的宝贝。';
 	else if (hour < 9) return '早上好啊凹凹，又是元气满满的一天哦！mua~';
 	else if (hour < 12) return '已经到中午了，今天你说爱我了吗？凹凹，爱你么么哒~';
 	else if (hour < 15) return '凹凹，今天累吗，点个下午茶犒劳犒劳自己？';
-	else if (hour < 18) return '给你捏捏肩膀，最爱的凹凹。';
+	else if (hour < 18) return '下午了，休息一下吧，给你捏捏肩膀。';
 	else if (hour < 20) return '傍晚咯，该吃饭啦。今天过的怎么样？记得和我分享你的心情哦。';
 	else if (hour < 24) return '夜深了，记得早点休息。晚安，凹凹。么么';
 	else return '凹凹，我爱你';

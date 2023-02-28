@@ -114,8 +114,7 @@ const signInSuccess = (isNoPower: boolean | undefined) => {
 			router.push('/');
 		}
 		// 登录成功提示
-		const signInText = t('message.signInText');
-		ElMessage.success(`${currentTimeInfo}，${signInText}`);
+		ElMessage.success(`${currentTimeInfo}`);
 		// 添加 loading，防止第一次进入界面时出现短暂空白
 		NextLoading.start();
 	}

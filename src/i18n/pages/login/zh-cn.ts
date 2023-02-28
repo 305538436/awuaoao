@@ -24,5 +24,5 @@ export default {
 	scan: {
 		text: '打开手机扫一扫，查看彩蛋',
 	},
-	signInText: '欢迎回来！',
+	signInText: '',
 };
